@@ -3,7 +3,7 @@ from streamlit_option_menu import option_menu
 import streamlit.components.v1 as components
 import time
 from model import *
-
+from PIL import Image
 
 
 if 'model' not in st.session_state:
@@ -51,13 +51,13 @@ def update_artist_url():
 def play_recomm():
     if 'rs' in st.session_state:
         del st.session_state.rs,st.session_state.err
-    try:
-        if len(pd.read_csv('Data/new_tracks.csv')) >= 200:
-            with st.spinner('Updating the dataset...'):
-                x=update_dataset()
-                st.success('{} New tracks were added to the dataset.'.format(x))
-    except:
-        st.error("The dataset update failed. ")
+    # try:
+    #     if len(pd.read_csv('Data/new_tracks.csv')) >= 200:
+    #         with st.spinner('Updating the dataset...'):
+    #             x=update_dataset()
+    #             st.success('{} New tracks were added to the dataset.'.format(x))
+    # except:
+    #     st.error("The dataset update failed. ")
     with st.spinner('Getting Recommendations...'):
         res,err = playlist_model(st.session_state.p_url,st.session_state.model,st.session_state.genre,st.session_state.artist)
         st.session_state.rs=res
@@ -174,7 +174,8 @@ def home_page():
                 - Choose "Copy link to playlist"
             """)
             st.markdown("<br>", unsafe_allow_html=True)
-            st.image('spotify_get_playlist_url.png')
+            spotify_get_playlist_url = Image.open('Streamlit/spotify_get_playlist_url.png')
+            st.image(spotify_get_playlist_url)
         if state:
             play_recomm()
     elif radio == "Song" :
@@ -190,7 +191,8 @@ def home_page():
                 - Choose "Copy link to Song"
             """)
             st.markdown("<br>", unsafe_allow_html=True)
-            st.image('spotify_get_song_url.png')
+            spotify_get_song_url = Image.open('Streamlit/spotify_get_song_url.png')
+            st.image(spotify_get_song_url)
         if state:
             song_recomm()
     elif radio == "Artist Top Tracks" :
@@ -206,7 +208,8 @@ def home_page():
                 - Choose "Copy link to Artist"
             """)
             st.markdown("<br>", unsafe_allow_html=True)
-            st.image('spotify_get_artist_url.png')
+            spotify_get_artist_url = Image.open('Streamlit/spotify_get_artist_url.png')
+            st.image(spotify_get_artist_url)
         if state:
             art_recomm()
     

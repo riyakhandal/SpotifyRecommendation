@@ -74,7 +74,7 @@ def playlist_model(url, model, max_gen=3, same_art=5):
      dtypes = {'track_uri': 'object', 'artist_uri': 'object', 'album_uri': 'object', 'danceability': 'float16', 'energy': 'float16', 'key': 'float16',
                'loudness': 'float16', 'mode': 'float16', 'speechiness': 'float16', 'acousticness': 'float16', 'instrumentalness': 'float16',
                'liveness': 'float16', 'valence': 'float16', 'tempo': 'float16', 'duration_ms': 'float32', 'time_signature': 'float16',
-               'Track_release_date': 'int8', 'Track_pop': 'int8', 'Artist_pop': 'int8', 'Artist_genres': 'object'}
+               'Track_release_date': 'int8', 'Track_pop': 'float16', 'Artist_pop': 'float16', 'Artist_genres': 'object'}
      col_name= ['track_uri', 'artist_uri', 'album_uri', 'danceability', 'energy', 'key',
         'loudness', 'mode', 'speechiness', 'acousticness', 'instrumentalness',
         'liveness', 'valence', 'tempo', 'duration_ms', 'time_signature',
@@ -354,7 +354,7 @@ def song_model(url, model, max_gen=3, same_art=5):
      dtypes = {'track_uri': 'object', 'artist_uri': 'object', 'album_uri': 'object', 'danceability': 'float16', 'energy': 'float16', 'key': 'float16',
                'loudness': 'float16', 'mode': 'float16', 'speechiness': 'float16', 'acousticness': 'float16', 'instrumentalness': 'float16',
                'liveness': 'float16', 'valence': 'float16', 'tempo': 'float16', 'duration_ms': 'float32', 'time_signature': 'float16',
-               'Track_release_date': 'int8', 'Track_pop': 'int8', 'Artist_pop': 'int8', 'Artist_genres': 'object'}
+               'Track_release_date': 'int8', 'Track_pop': 'float16', 'Artist_pop': 'float16', 'Artist_genres': 'object'}
      col_name= ['track_uri', 'artist_uri', 'album_uri', 'danceability', 'energy', 'key',
         'loudness', 'mode', 'speechiness', 'acousticness', 'instrumentalness',
         'liveness', 'valence', 'tempo', 'duration_ms', 'time_signature',
